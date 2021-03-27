@@ -5,7 +5,6 @@ class Info extends React.Component{
     return(
       <div>
         <h2>Solr Web-app</h2>
-        <p>enter keyword</p>
       </div>
     );
   }

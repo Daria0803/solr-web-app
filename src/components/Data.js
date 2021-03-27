@@ -10,6 +10,7 @@ class Data extends React.Component{
           {this.props.docs.map(x => <div>{x.url}</div>)}
         </div>
       }
+      <p>{this.props.error}</p>
       </div>
     );
   }

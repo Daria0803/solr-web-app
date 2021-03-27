@@ -38,17 +38,24 @@ class App extends Component {
   gettingData = async (e) => {
     e.preventDefault();
     var keyword = e.target.elements.keyword.value;
+    if (keyword){
+      const URL = await
+      fetch(`http://localhost:8983/solr/test-wet/select?q=${keyword}&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=imperial`);
+      const data =  await URL.json();
+      console.log(data);
 
-    const URL = await
-    fetch(`http://localhost:8983/solr/test-wet/select?q=${keyword}&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=imperial`);
-    const data =  await URL.json();
-    console.log(data);
-
-    this.setState({
-      numFound: data.response.numFound,
-      docs: data.response.docs,
-      error: ""
-    });
+      this.setState({
+        numFound: data.response.numFound,
+        docs: data.response.docs,
+        error: undefined
+      });
+    } else {
+      this.setState({
+        numFound: undefined,
+        docs: [],
+        error: "Enter keyword to search"
+      });
+    }
 
   }
 
@@ -58,13 +65,24 @@ class App extends Component {
     //if (!data) return <div>Loading</div>;
 
     return(
-      <div>
-        <Info />
-        <Form solrMethod={this.gettingData} />
-        <Data
-          numFound={this.state.numFound}
-          docs={this.state.docs}
-        />
+      <div className="wrapper">
+
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-4 info">
+                <Info />
+              </div>
+              <div className="col-sm-8 form">
+                <Form solrMethod={this.gettingData} />
+                <Data
+                  numFound={this.state.numFound}
+                  docs={this.state.docs}
+                  error={this.state.error}
+                />
+              </div>
+            </div>
+
+        </div>
       </div>
     );
   }

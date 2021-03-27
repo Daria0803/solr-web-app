@@ -3,9 +3,9 @@ import React from "react";
 class Data extends React.Component{
   render(){
     return(
-      <div classname="infoWeath">
+      <div>
       { this.props.numFound &&
-        <div>
+        <div classname="infoWeath">
           <p>Found: {this.props.numFound} documents</p>
           {this.props.docs.map(x => <div>{x.url}</div>)}
         </div>

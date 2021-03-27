@@ -22,7 +22,7 @@ body {
 }
 
 .main {
-  height: 70vh;
+  height: 80vh;
   background: #2a6bb1;
   box-shadow: 0px 2px 80px -20px rgba(0,0,0,0.5);
   width: 80%;
@@ -30,7 +30,7 @@ body {
 }
 
 .info {
-  height: 70vh;
+  height: 80vh;
   background: url("img/sunlight.jpg") center center no-repeat;
   background-blend-mode: multiply;
   background-color: #484746;
@@ -42,6 +42,15 @@ body {
   justify-content: center;
   text-align: center;
   color: #001;
+}
+
+.form {
+  height: 80vh;
+  padding-top: 50px;
+  padding-left: 50px;
+  border-top: 2px solid #113a65;
+  border-bottom: 2px solid #113a65;
+  border-right: 2px solid #113a65;
 }
 
 input[type="text"] {

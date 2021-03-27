@@ -66,13 +66,13 @@ class App extends Component {
 
     return(
       <div className="wrapper">
-
+        <div className="main">
           <div className="container">
             <div className="row">
-              <div className="col-sm-4 info">
+              <div className="col-sm-3 info">
                 <Info />
               </div>
-              <div className="col-sm-8 form">
+              <div className="col-sm-9 form">
                 <Form solrMethod={this.gettingData} />
                 <Data
                   numFound={this.state.numFound}
@@ -81,7 +81,7 @@ class App extends Component {
                 />
               </div>
             </div>
-
+          </div>
         </div>
       </div>
     );
